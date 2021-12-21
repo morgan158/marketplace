@@ -17,7 +17,7 @@ public class SignUpServiceImpl implements SignUpService{
     @Override
     public void signUp(SignUpForm signUpForm) {
         User user = User.builder()
-                .email(signUpForm.getEmail())
+                .email(passwordEncoder.encode(signUpForm.getEmail()))
                 .password(passwordEncoder.encode(signUpForm.getPassword()))
                 .build();
 
